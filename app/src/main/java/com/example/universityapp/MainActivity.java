@@ -11,16 +11,19 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText etLoginEmail, etLoginPassword;
+    EditText etLoginStudentID, etLoginPassword;
     Button btnLogin;
     TextView txtRegister;
+
+    public static final String STUDENTID = "studentkey"; // Allows the StudentID to be passed between activities
 
     private FirebaseAuth mAuth;
 
@@ -32,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         txtRegister = (TextView) findViewById(R.id.txtRegister);
 
         btnLogin = (Button) findViewById(R.id.btnLogIn);
-        etLoginEmail = (EditText) findViewById(R.id.etLoginEmail);
+        etLoginStudentID = (EditText) findViewById(R.id.etLoginStudentID);
         etLoginPassword = (EditText) findViewById(R.id.etLoginPassword);
 
         mAuth = FirebaseAuth.getInstance();
@@ -56,12 +59,12 @@ public class MainActivity extends AppCompatActivity {
         });
     }
     private void userLogin() {
-        String email = etLoginEmail.getText().toString().trim();
+        String studentID = etLoginStudentID.getText().toString().trim();
         String password = etLoginPassword.getText().toString().trim();
 
-        if(email.isEmpty()) {
-            etLoginEmail.setError("Email required!");
-            etLoginEmail.requestFocus();
+        if(studentID.isEmpty()) {
+            etLoginStudentID.setError("Username required!");
+            etLoginStudentID.requestFocus();
             return;
         }
 
@@ -70,16 +73,42 @@ public class MainActivity extends AppCompatActivity {
             etLoginPassword.requestFocus();
             return;
         }
-        mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+
+        FirebaseDatabase.getInstance().getReference("Users")
+                .child(studentID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()){
-                    //go to dashboard
-                    startActivity(new Intent(MainActivity.this, Dashboard.class));
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.getValue() == null) { // Check if username already exists
+                    Toast.makeText(MainActivity.this, "Username not registered!", Toast.LENGTH_LONG).show();
                 }
                 else {
-                    Toast.makeText(MainActivity.this, "Failed to login!", Toast.LENGTH_LONG).show();
+                    // Check password
+                    FirebaseDatabase.getInstance().getReference("Users")
+                            .child(studentID).child("password").addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            if(snapshot.getValue().toString().equals(password)) { // Go to Dashboard
+                                Intent intent = new Intent(getApplicationContext(), Dashboard.class);
+                                intent.putExtra(STUDENTID, studentID);
+                                startActivity(intent);
+                                finish();
+                            }
+                            else {
+                                Toast.makeText(MainActivity.this, "Wrong password!", Toast.LENGTH_LONG).show();
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
                 }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
     }

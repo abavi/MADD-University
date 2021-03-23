@@ -13,9 +13,11 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class RegisterUser extends AppCompatActivity implements View.OnClickListener {
 
@@ -38,7 +40,7 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
         etLastName = (EditText) findViewById(R.id.etLastName);
         etEmail = (EditText) findViewById(R.id.etEmail);
         etPassword = (EditText) findViewById(R.id.etPassword);
-        etRegisterStudentID = (EditText) findViewById(R.id.etLoginEmail);
+        etRegisterStudentID = (EditText) findViewById(R.id.etLoginStudentID);
     }
 
     @Override
@@ -94,33 +96,41 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
             return;
         }
 
-        mAuth.createUserWithEmailAndPassword(email, password).
-                addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-                            User user = new User(firstName, lastName, email, studentID);
+        // Entering user details in Realtime Database giving the StudentID as key
+        User user = new User(firstName, lastName, email, studentID, password);
 
-                            FirebaseDatabase.getInstance().getReference("Users")
-                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                    .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    if (task.isSuccessful()) {
-                                        Toast.makeText(RegisterUser.this, "User registered!", Toast.LENGTH_LONG).show();
-                                        finish();
-                                    }
-                                    else {
-                                        Toast.makeText(RegisterUser.this, "User register failed!", Toast.LENGTH_LONG).show();
-                                    }
-                                }
-                            });
+        FirebaseDatabase.getInstance().getReference("Users")
+                .child(studentID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.getValue() == null) { // Check if username already exists
+                    FirebaseDatabase.getInstance().getReference("Users")
+                            .child(studentID)
+                            .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(RegisterUser.this, "User registered!", Toast.LENGTH_LONG).show();
+                                finish();
+                            }
+                            else {
+                                Toast.makeText(RegisterUser.this, "User register failed!", Toast.LENGTH_LONG).show();
+                            }
                         }
-                        else {
-                            Toast.makeText(RegisterUser.this, "User register failed!", Toast.LENGTH_LONG).show();
-                        }
-                    }
-                });
+                    });
+                }
+                else {
+                    Toast.makeText(RegisterUser.this, "Username already taken!", Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
 
     }
 }

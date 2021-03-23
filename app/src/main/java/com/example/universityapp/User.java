@@ -2,17 +2,18 @@ package com.example.universityapp;
 
 public class User {
 
-    public String firstName, lastName, email, studentID;
+    public String firstName, lastName, email, studentID, password;
 
     public User() {
 
     }
 
-    public User(String firstName, String lastName, String email, String studentID) {
+    public User(String firstName, String lastName, String email, String studentID, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.studentID = studentID;
+        this.password = password;
     }
 
     public String getFirstName() {
@@ -45,5 +46,13 @@ public class User {
 
     public void setStudentID(String studentID) {
         this.studentID = studentID;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
