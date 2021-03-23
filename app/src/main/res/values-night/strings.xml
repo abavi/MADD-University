@@ -1,7 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">University App</string>
     <string name="registerTitle">Register</string>
-    <string name="please_enter_your_account_details_below">Please enter your account details below:</string>
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
 </resources>
