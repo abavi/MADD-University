@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".MainActivity">
 
     <TextView
@@ -49,13 +50,14 @@
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
+        android:password="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etStudentID" />
+        app:layout_constraintTop_toBottomOf="@+id/etRegisterStudentID" />
 
     <EditText
-        android:id="@+id/etStudentID"
+        android:id="@+id/etRegisterStudentID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="92dp"
