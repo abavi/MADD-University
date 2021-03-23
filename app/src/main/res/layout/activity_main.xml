@@ -54,20 +54,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etRegisterStudentID" />
+        app:layout_constraintTop_toBottomOf="@+id/etLoginEmail" />
 
     <EditText
-        android:id="@+id/etRegisterStudentID"
+        android:id="@+id/etLoginEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="92dp"
+        android:layout_marginTop="25dp"
         android:ems="10"
         android:hint="Student ID"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtLoginTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/txtLoginDescription" />
 
     <TextView
         android:id="@+id/txtLoginDescription"

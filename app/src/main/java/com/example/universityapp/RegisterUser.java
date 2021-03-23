@@ -38,7 +38,7 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
         etLastName = (EditText) findViewById(R.id.etLastName);
         etEmail = (EditText) findViewById(R.id.etEmail);
         etPassword = (EditText) findViewById(R.id.etPassword);
-        etRegisterStudentID = (EditText) findViewById(R.id.etRegisterStudentID);
+        etRegisterStudentID = (EditText) findViewById(R.id.etLoginEmail);
     }
 
     @Override
