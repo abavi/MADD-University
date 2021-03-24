@@ -13,6 +13,8 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 
 public class myAdapter extends FirebaseRecyclerAdapter<LibraryModel, myAdapter.viewholder> {
 
+
+
     public myAdapter(@NonNull FirebaseRecyclerOptions<LibraryModel> options) {
         super(options);
     }
@@ -49,5 +51,7 @@ public class myAdapter extends FirebaseRecyclerAdapter<LibraryModel, myAdapter.v
 
         }
     }
+
+
 
 }
