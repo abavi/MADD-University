@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FloorMapIndex">
+
+    <ImageView
+        android:id="@+id/ivLogo"
+        android:layout_width="101dp"
+        android:layout_height="106dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/unilogo" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="41dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivLogo">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtRoomIndex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Rooms Index:"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/txtComputerLab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="8dp"
+                android:text="1. Computer Lab" />
+
+            <TextView
+                android:id="@+id/txtDisabledStudentService"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="8dp"
+                android:text="2. Disabled Student Service" />
+
+            <TextView
+                android:id="@+id/txtFoodCourt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="8dp"
+                android:text="3. Food Court" />
+
+            <TextView
+                android:id="@+id/txtInfoDesk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="8dp"
+                android:text="4. Info Desk" />
+
+            <TextView
+                android:id="@+id/txtLab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="8dp"
+                android:text="5. Lab" />
+
+            <TextView
+                android:id="@+id/txtLounge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="8dp"
+                android:text="6. Lounge" />
+
+            <TextView
+                android:id="@+id/txtPostOffice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="8dp"
+                android:text="7. Post Office" />
+
+            <TextView
+                android:id="@+id/txtRoom101"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="8dp"
+                android:text="8. Room 101" />
+
+            <TextView
+                android:id="@+id/txtRoom102"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="8dp"
+                android:text="9. Room 102" />
+
+            <TextView
+                android:id="@+id/txtRoom103"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="8dp"
+                android:text="10. Room 103" />
+
+            <TextView
+                android:id="@+id/txtRoom104"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="8dp"
+                android:text="11. Room 104" />
+
+            <TextView
+                android:id="@+id/txtRoom105"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="8dp"
+                android:text="12. Room 105" />
+
+            <TextView
+                android:id="@+id/txtRoom106"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="8dp"
+                android:text="13. Room 106" />
+
+            <TextView
+                android:id="@+id/txtRoom107"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="8dp"
+                android:text="14. Room 107" />
+
+            <TextView
+                android:id="@+id/txtStaffOffices"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="8dp"
+                android:text="15. Staff Offices" />
+
+            <TextView
+                android:id="@+id/txtStudentFinance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="8dp"
+                android:text="16. Student Finance" />
+
+            <TextView
+                android:id="@+id/txtStudentOrganizations"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="8dp"
+                android:text="17. Student Organizations" />
+
+            <TextView
+                android:id="@+id/txtStudentServices"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="8dp"
+                android:text="18. Student Services" />
+
+            <TextView
+                android:id="@+id/txtStudentWellbeing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="8dp"
+                android:text="19. Student Wellbeing" />
+
+            <TextView
+                android:id="@+id/txtToilet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="8dp"
+                android:text="20. Toilets" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="6dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintTop_toBottomOf="@+id/ivLogo" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
