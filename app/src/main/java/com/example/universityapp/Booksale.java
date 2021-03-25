@@ -4,7 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
@@ -13,6 +16,8 @@ public class Booksale extends AppCompatActivity {
 
     RecyclerView bookView;
     saleAdapter adapter1;
+    Button btnSAdd;
+    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +34,15 @@ public class Booksale extends AppCompatActivity {
         adapter1= new saleAdapter(options);
         bookView.setAdapter(adapter1);
 
+        btnSAdd = findViewById(R.id.btnSadd);
+
+        btnSAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(getApplicationContext(),studentAddbook.class);
+                startActivity(intent);
+            }
+        });
 
 
 

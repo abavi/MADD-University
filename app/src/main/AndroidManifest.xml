@@ -19,7 +19,9 @@
         <activity android:name=".addbook" />
         <activity android:name=".Dashboard" />
         <activity android:name=".RegisterUser" />
+        <activity android:name=".studentAddbook"/>
         <activity android:name=".MainActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
