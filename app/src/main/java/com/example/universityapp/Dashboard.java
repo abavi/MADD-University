@@ -14,7 +14,7 @@ public class Dashboard extends AppCompatActivity {
     TextView txtStudentId;
     private Intent intent;
     String studentID;
-    Button btnLibrary, btnMoodle, btnTimetable, btnFloorMap;
+    Button btnLibrary, btnMoodle, btnTimetable, btnFloorMap, btnBooksale;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +27,7 @@ public class Dashboard extends AppCompatActivity {
         btnLibrary = findViewById(R.id.btnLibrary);
         btnMoodle = findViewById(R.id.btnMoodle);
         btnFloorMap = findViewById(R.id.btnFloorMap);
+        btnBooksale =findViewById(R.id.btnBooksale);
 
         if(intent.getSerializableExtra(MainActivity.STUDENTID) != null) {
             studentID = (String) intent.getSerializableExtra(MainActivity.STUDENTID);
@@ -56,6 +57,13 @@ public class Dashboard extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), FloorMapIndex.class));
+            }
+        });
+
+        btnBooksale.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),Booksale.class));
             }
         });
     }

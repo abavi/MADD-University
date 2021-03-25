@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.UniversityApp">
-        <activity android:name=".Floor2"></activity>
+        <activity android:name=".Booksale"></activity>
+        <activity android:name=".Floor2" />
         <activity android:name=".Floor1" />
         <activity android:name=".FloorMapIndex" />
         <activity android:name=".Library" />
