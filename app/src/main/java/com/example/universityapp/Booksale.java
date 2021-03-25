@@ -51,7 +51,6 @@ public class Booksale extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         adapter1.startListening();
-
     }
 
     @Override

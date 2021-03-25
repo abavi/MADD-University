@@ -9,12 +9,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import static com.example.universityapp.MainActivity.STUDENTID;
+
 public class Dashboard extends AppCompatActivity {
 
     TextView txtStudentId;
     private Intent intent;
     String studentID;
-    Button btnLibrary, btnMoodle, btnTimetable, btnFloorMap, btnBooksale;
+    Button btnLibrary, btnMoodle, btnTimetable, btnFloorMap, btnBooksale, btnForum, btnActivities;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +30,10 @@ public class Dashboard extends AppCompatActivity {
         btnMoodle = findViewById(R.id.btnMoodle);
         btnFloorMap = findViewById(R.id.btnFloorMap);
         btnBooksale =findViewById(R.id.btnBooksale);
+        btnForum = findViewById(R.id.btnForum);
 
-        if(intent.getSerializableExtra(MainActivity.STUDENTID) != null) {
-            studentID = (String) intent.getSerializableExtra(MainActivity.STUDENTID);
+        if(intent.getSerializableExtra(STUDENTID) != null) {
+            studentID = (String) intent.getSerializableExtra(STUDENTID);
             txtStudentId.setText(studentID);
         }
 
@@ -59,11 +62,20 @@ public class Dashboard extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), FloorMapIndex.class));
             }
         });
-
+        //Booksale activity
         btnBooksale.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(),Booksale.class));
+            }
+        });
+        //Send to Discussion Forum
+        btnForum.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(getApplicationContext(), Forum.class);
+                intent.putExtra(STUDENTID, studentID);
+                startActivity(intent);
             }
         });
     }

@@ -41,7 +41,7 @@ public class saleAdapter extends FirebaseRecyclerAdapter<booksaleModel, saleAdap
 
             super(itemView);
             Title=(TextView)itemView.findViewById(R.id.sTitle);
-            Author=(TextView)itemView.findViewById(R.id.sAuthro);
+            Author=(TextView)itemView.findViewById(R.id.sAuthor);
             Description=(TextView)itemView.findViewById(R.id.sDescription);
         }
     }
