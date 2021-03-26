@@ -32,6 +32,7 @@ public class Dashboard extends AppCompatActivity {
         btnBooksale =findViewById(R.id.btnBooksale);
         btnForum = findViewById(R.id.btnForum);
         btnActivities = findViewById(R.id.btnActivities);
+        btnTimetable = findViewById(R.id.btnTimetable);
 
         if(intent.getSerializableExtra(STUDENTID) != null) {
             studentID = (String) intent.getSerializableExtra(STUDENTID);
@@ -84,6 +85,14 @@ public class Dashboard extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 intent = new Intent(getApplicationContext(), Activities.class);
+                startActivity(intent);
+            }
+        });
+        //Send to Timetable
+        btnTimetable.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(getApplicationContext(), Timetable.class);
                 startActivity(intent);
             }
         });

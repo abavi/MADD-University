@@ -4,4 +4,11 @@
     <string name="please_enter_your_account_details_below">Please enter your account details below:</string>
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
+    <string-array name="groupChoices">
+        <item>1001</item>
+        <item>1002</item>
+        <item>1003</item>
+        <item>1004</item>
+    </string-array>
+
 </resources>
