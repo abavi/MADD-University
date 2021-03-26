@@ -9,6 +9,24 @@ public class LibraryModel {
 
     }
 
+    public LibraryModel(String title, String author, String subject, String ISBN) {
+        Title = title;
+        Author = author;
+        Subject = subject;
+        this.ISBN = ISBN;
+    }
+
+    @Override
+    public String toString() {
+        return "LibraryModel{" +
+                "Title='" + Title + '\'' +
+                ", Author='" + Author + '\'' +
+                ", Subject='" + Subject + '\'' +
+                ", ISBN='" + ISBN + '\'' +
+                ", Edition=" + Edition +
+                '}';
+    }
+
     public LibraryModel(String title, String author, String subject, String ISBN, Integer edition) {
         Title = title;
         Author = author;

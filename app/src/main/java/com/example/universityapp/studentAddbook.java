@@ -42,7 +42,7 @@ public class studentAddbook extends AppCompatActivity {
                 sTitle=(studentTitle.getText().toString().trim());
                 reff1.child(sTitle).setValue(sBooks);
                 Toast.makeText(studentAddbook.this, "Book Added!", Toast.LENGTH_SHORT).show();
-
+                finish();
 
 
 
