@@ -4,23 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Forum">
-
-    <Button
-        android:id="@+id/btnAddPost"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/custom_button"
-        android:scaleX="0.75"
-        android:scaleY="0.75"
-        android:text="+"
-        android:textSize="50sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+    tools:context=".Activities">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -48,28 +32,17 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="11dp"
                     android:layout_marginRight="11dp"
-                    android:text="Discussion Forum:"
+                    android:text="Activities:"
                     android:textSize="30sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/divider3" />
 
-                <TextView
-                    android:id="@+id/txtStudentIdForum"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="StudentID"
-                    android:textSize="25sp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/ivLogo4" />
-
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvForumPosts"
+                    android:id="@+id/rvActivities"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:layout_marginStart="5dp"
                     android:layout_marginLeft="5dp"
@@ -97,11 +70,11 @@
                     android:id="@+id/divider3"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_marginTop="26dp"
+                    android:layout_marginTop="30dp"
                     android:background="?android:attr/listDivider"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txtStudentIdForum" />
+                    app:layout_constraintTop_toBottomOf="@+id/ivLogo4" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>

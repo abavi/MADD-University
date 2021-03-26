@@ -31,6 +31,7 @@ public class Dashboard extends AppCompatActivity {
         btnFloorMap = findViewById(R.id.btnFloorMap);
         btnBooksale =findViewById(R.id.btnBooksale);
         btnForum = findViewById(R.id.btnForum);
+        btnActivities = findViewById(R.id.btnActivities);
 
         if(intent.getSerializableExtra(STUDENTID) != null) {
             studentID = (String) intent.getSerializableExtra(STUDENTID);
@@ -75,6 +76,14 @@ public class Dashboard extends AppCompatActivity {
             public void onClick(View v) {
                 intent = new Intent(getApplicationContext(), Forum.class);
                 intent.putExtra(STUDENTID, studentID);
+                startActivity(intent);
+            }
+        });
+        //Send to Activities
+        btnActivities.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(getApplicationContext(), Activities.class);
                 startActivity(intent);
             }
         });
